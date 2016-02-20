@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Tweets</title>
+</head>
+<body>
+	<form action ="/search" method = "POST">
+		{% csrf_token %}
+		User Name <input type = "text" name = "namefield" >
+		Text <input type = "text" name = "textfield" >
+		Sentiment <input type = "text" name = "sentimentfield" >
+		Created at <input type = "text" name = "createdatfield" >
+		<input type = "submit" value = "search" />
+	</form>
+	{% for i in items %}
+	<table>
+	<tr><th>Text</th> 
+	<th>User</th> 	
+	<th>Airline Sentiment</th>  
+	<th>Created AT</th></tr> 
+	<tr> 
+	<td>{{ i.text }} </td>
+	<td>{{ i.name }} </td>
+	<td>{{ i.airline_sentiment }}</td>
+	<td>{{ i.tweet_created }}</td>
+</tr>
+	</table>
+	<br>
+	{% endfor %}
+</body>
+</html>

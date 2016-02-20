@@ -1,0 +1,59 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<title>jQuery</title>
+		      <link href="http://fonts.googleapis.com/css?family=Frijole" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Oregano' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+
+        <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+		<style>
+		body {
+  background: url({% static "travel_03.jpg" %} );
+}
+
+#one{
+	    text-align: center;	
+
+	 color: white;
+    font-family: 'Frijole', cursive;
+        font-size: 50px;
+
+}
+#two{
+	color: white;
+                font-family: 'Lobster Two', cursive;
+                        font-size: 30px;
+
+
+}
+.abc{
+	margin-left: 570px;
+	font-size: 50px;
+	font-family: 'Monoton', cursive;
+}
+#foot{
+	margin-bottom: 20px;
+}
+
+		</style>
+	</head>
+	<body>
+
+
+<p id="one">Welcome to Airlines Sentiment Analysis!!</p>
+<p id="two">
+A sentiment analysis job about the problems of each major U.S. airline. <br>Twitter data was scraped from February of 2015 and contributors were asked to first classify positive, negative, and neutral tweets, followed by categorizing negative reasons (such as "late flight" or "rude service").</p>
+<a class="abc" href ="{% url 'index' %}"> TWEETS!!</a>
+
+
+
+
+	</body>
+
+
+</html>

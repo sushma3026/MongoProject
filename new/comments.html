@@ -1,0 +1,53 @@
+    <!doctype html>
+    <html>
+    <head>
+    	<meta charset = "utf-8">
+    	<title>Tweets</title>
+    	        <link href='http://fonts.googleapis.com/css?family=Oregano' rel='stylesheet' type='text/css'>
+
+    	<style>
+    	body{
+    		background: linear-gradient(black,#4AC3FF,black);
+    		background-size: 100%;
+    	}
+
+#allTags{
+	    color: white;
+	font-family: 'Oregano', cursive;
+	        font-size: 30px;
+	        margin-left: 100px;
+
+}
+
+    	</style>
+    	</head>
+
+
+    	<body>
+
+<a href="{% url 'index' %}">Back to search</a>
+
+{% for i in item %}
+<div id ="allTags">
+	    		<h1>Tweet Results</h1>
+
+<p>Text: {{ i.text }}</p>
+<p>Name: {{ i.name }}</p>
+<p>Sentiment: {{ i.airline_sentiment }}</p>
+<p>Airline: {{ i.airline }}</p>
+<p>Negative Reason: {{ i.negativereason }}</p>
+<p>User Comments: {{ i.user_comment }}</p>
+
+
+{% load getobjectid %}
+	<form method = "POST">
+		{% csrf_token %}
+		Comments <input type = "text" name = "commentfield" >
+		<input type = "submit" value = "AddComment" />
+	</form>
+	{% endfor %}
+	</div>
+
+	
+</body>
+</html>

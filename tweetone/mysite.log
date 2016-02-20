@@ -1,0 +1,16 @@
+[07/Dec/2015 19:51:00] INFO [django.db.backends:21] Mongodb connected
+[07/Dec/2015 19:51:00] INFO [django.db.backends:29] Requesting main page
+[07/Dec/2015 19:51:10] INFO [django.db.backends:34] Requesting index page
+[07/Dec/2015 19:51:16] INFO [django.db.backends:40] Requesting search page
+[07/Dec/2015 19:51:16] INFO [django.db.backends:74] rendering search results
+[07/Dec/2015 19:51:20] INFO [django.db.backends:89] Requesting comments page
+[07/Dec/2015 19:51:20] INFO [django.db.backends:98] Displaying updated document
+[07/Dec/2015 19:51:47] INFO [django.db.backends:34] Requesting index page
+[07/Dec/2015 19:52:33] INFO [django.db.backends:40] Requesting search page
+[07/Dec/2015 19:52:33] INFO [django.db.backends:74] rendering search results
+[07/Dec/2015 19:52:40] INFO [django.db.backends:89] Requesting comments page
+[07/Dec/2015 19:52:40] INFO [django.db.backends:98] Displaying updated document
+[07/Dec/2015 19:52:48] INFO [django.db.backends:89] Requesting comments page
+[07/Dec/2015 19:52:48] INFO [django.db.backends:91] Adding Comments
+[07/Dec/2015 19:52:48] INFO [django.db.backends:98] Displaying updated document
+[07/Dec/2015 19:52:53] INFO [django.db.backends:34] Requesting index page

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Tweets</title>
+	<style>
+	table,td, th {
+    border: 1px solid black;
+
+}
+
+table,tr {
+    border-collapse: collapse;
+        width: 100%;
+
+}
+</style>
+</head>
+<body>
+	<form action ="/search" method = "POST">
+		{% csrf_token %}
+		User Name <input type = "text" name = "namefield" >
+		Text <input type = "text" name = "textfield" >
+		Sentiment <input type = "text" name = "sentimentfield" >
+		Created at <input type = "text" name = "createdatfield" >
+		<input type = "submit" value = "search" />
+	</form>
+<br>
+<form action="/commentingMethod" method = "POST">
+{% csrf_token %}
+<input type = "submit" value = "comment"/>
+</form>
+	<table>
+	<tr>
+	<th>Input Text</th> 
+	<th>User</th> 	
+	<th>Airline Sentiment</th>  
+	<th>Created AT</th>
+	</tr> 
+	{% for i in items %}
+	<tr> 
+	<td>{{ i.text }} </td>
+	<td>{{ i.name }} </td>
+	<td>{{ i.airline_sentiment }}</td>
+	<td>{{ i.tweet_created }}</td>
+	</tr>
+{% endfor %}
+
+
+
+	</table>
+	<br>
+	
+</body>
+</html>

@@ -1,0 +1,181 @@
+1- You have to start Mongodb server to be listened for the connection in first terminal window
+2- you have to start Mongo on another terminal (second window)
+3- Start another terminal and let's start working on installing the required files for the pymongo to start connection 
+   with our mongodatabase, which is (users) and its collection which is (tweets).
+
+On the third terminal window start following these instructions
+----------------------------------------------------------------
+
+osboxes@osboxes:~$ python
+osboxes@osboxes:~$ python --version
+Python 2.7.10
+osboxes@osboxes:~$ pip install pymongo
+osboxes@osboxes:~$ sudo apt-get install build-essential python-dev
+[sudo] password for osboxes:
+.
+.
+.
+Do you want to continue? [Y/n] Y
+osboxes@osboxes:~$ sudo apt-get install git
+[sudo] password for osboxes: osboxes.org
+osboxes@osboxes:~$ git clone git://github.com/mongodb/mongo-python-driver.git pymongo
+osboxes@osboxes:~$ cd pymongo/
+osboxes@osboxes:~/pymongo$ sudo python setup.py install
+osboxes@osboxes:~/pymongo$ sudo python setup.py bdist_egg
+osboxes@osboxes:~/pymongo$ pip install https://github.com/mongodb/mongo-python-driver/archive/3.1rc0.tar.gz
+osboxes@osboxes:~/pymongo$ cd ~
+osboxes@osboxes:~$ python    //open python
+
+
+
+-- Here we will start working on Python 
+-----------------------------------------
+osboxes@osboxes:~$ python
+Python 2.7.10 (default, Oct 14 2015, 16:09:02) 
+[GCC 5.2.1 20151010] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> import pymongo
+>>> from pymongo import MongoClient
+>>> client = MongoClient()
+>>> client = MongoClient('localhost', 27017)                       //Connect to the local server
+>>> client = MongoClient('mongodb://localhost:27017/')
+>>> db = client.users                                          //Either this code
+>>> db = client['users']                                      //Or this code
+>>> collection = db['users-collection']              
+>>> db.collection_names(include_system_collections=False)
+[u'tweets']
+>>> tweets = db.tweets                                  //Define a new variable called tweets to deal with the database
+>>> tweets.find_one()                                  //Display one document from our MongoDatabase
+{u'fromUserId': 364445596, u'LanguageCode': u'en', u'fromUserName': u'Barbara Talia', u'text': u'Tree fell on Two cars. #hurricanesandy #sandy  @ Central Park - Great Lawn http://t.co/cX7I352D', u'twitterTweetId': 2.63e+17, u'profileImageUrl': u'http://a0.twimg.com/profile_images/2279235354/image_normal.jpg', u'source': u'&lt;a href=&quot;http://instagr.am&quot;&gt;Instagram&lt;/a&gt;', u'longitude': -73.96687, u'latitude': 40.780866, u'fromUser': u'barbaratalia', u'_id': ObjectId('563a81470c6ea53b3e441292'), u'id': 129690, u'createdAt': u'Tue, 30 Oct 2012 23:25:44 +0000'}
+
+
+//Insert a new document in the users MongoDatabase in the tweets collection using Python.
+*******************************************************************************************
+>>> import datetime
+>>> tweet ={"author": "Mike",
+... "text": "Myfirst blog post!",
+... "tags": ["mongodb", "python", "pymongo"],
+... "date": datetime.datetime.utcnow()}
+>>> tweets = db.tweets
+>>> tweet_id = tweets.insert_one(tweet).inserted_id
+>>> tweet_id
+ObjectId('564d3cacf9a2f31b1b9f5600')
+>>> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

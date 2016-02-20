@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Tweets</title>
+</head>
+<body>
+	<form action ="/search" method = "POST">
+		{% csrf_token %}
+		User Name <input type = "text" name = "namefield" >
+		Text <input type = "text" name = "textfield" >
+		Sentiment <input type = "text" name = "sentimentfield" >
+		Created at <input type = "text" name = "createdatfield" >
+		<input type = "submit" value = "search" />
+	</form>
+	{% for i in items %}
+	<p>text : {{ i.text }}</p>
+	<p>User : {{ i.name }}</p>
+	<p>Airline Sentiment: {{ i.airline_sentiment }}</p>
+	<p>Created AT: {{ i.tweet_created }}</p>
+	<br>
+	{% endfor %}
+</body>
+</html>

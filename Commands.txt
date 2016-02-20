@@ -1,0 +1,60 @@
+Commands
+--------------------
+Display All Documents
+
+>>> cursor = db.tweets.find()
+>>> for document in cursor: 
+    print(document)             //Must leave 4 tabs to work, then 2 Enter   
+
+
+----------------------------------------
+To print depends on a condition
+----------------------------------------
+>>> cursor = db.tweets.find({"createdAt" : "Tue, 30 Oct 2012 23:25:44 +0000"})
+>>> for document in cursor:
+...     print(document)                     //Must leave 4 tabs to work, then 2 Enter
+... 
+{u'fromUserId': 364445596, u'LanguageCode': u'en', u'fromUserName': u'Barbara Talia', u'text': u'Tree fell on Two cars. #hurricanesandy #sandy  @ Central Park - Great Lawn http://t.co/cX7I352D', u'twitterTweetId': 2.63e+17, u'profileImageUrl': u'http://a0.twimg.com/profile_images/2279235354/image_normal.jpg', u'source': u'&lt;a href=&quot;http://instagr.am&quot;&gt;Instagram&lt;/a&gt;', u'longitude': -73.96687, u'latitude': 40.780866, u'fromUser': u'barbaratalia', u'_id': ObjectId('563a81470c6ea53b3e441292'), u'id': 129690, u'createdAt': u'Tue, 30 Oct 2012 23:25:44 +0000'}
+>>> 
+
+--------------------------------------
+Same above with different condition
+--------------------------------------
+>>> cursor = db.tweets.find({"id" : 129690})
+>>> for document in cursor:
+...     print(document)
+... 
+{u'fromUserId': 364445596, u'LanguageCode': u'en', u'fromUserName': u'Barbara Talia', u'text': u'Tree fell on Two cars. #hurricanesandy #sandy  @ Central Park - Great Lawn http://t.co/cX7I352D', u'twitterTweetId': 2.63e+17, u'profileImageUrl': u'http://a0.twimg.com/profile_images/2279235354/image_normal.jpg', u'source': u'&lt;a href=&quot;http://instagr.am&quot;&gt;Instagram&lt;/a&gt;', u'longitude': -73.96687, u'latitude': 40.780866, u'fromUser': u'barbaratalia', u'_id': ObjectId('563a81470c6ea53b3e441292'), u'id': 129690, u'createdAt': u'Tue, 30 Oct 2012 23:25:44 +0000'}
+
+---------------------------------------
+Greater than and print the result
+----------------------------------------
+>>> cursor = db.tweets.find({
+... "createdAt" :
+... {"$gt": "Tue, 30 Oct 2012 20:00:00 +0000"}})
+>>> for document in cursor:
+...     print(document)
+... 
+----------------------------------------------------
+Or with Conditions  //Exercise Question
+----------------------------------------
+>>> cursor = db.tweets.find({
+... "$or": [{"createdAt" : {"$lte":"Tue, 30 Oct 2012 23:59:59 +0000"}},
+... {"createdAt": {"$gte": "Tue, 30 Oct 2012 20:00:00 +0000"}}]})
+
+>>> for document in cursor:
+...     print(document)
+... 
+------------------------------------------------
+To know how many document return with your query
+------------------------------------------------------
+>>> cursor.count()
+11226
+
+--------------------------------------------------------
+printing with Sorting Document ASCENDING
+----------------------------------------
+>>> for doc in tweets.find().sort('id', pymongo.ASCENDING):
+...     print(doc)
+... 
+

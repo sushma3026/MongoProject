@@ -1,0 +1,18 @@
+<a href="{% url 'index' %}">Back to search</a>
+
+{% for i in item %}
+<p>{{ i.text }}</p>
+<p>{{ i.name }}</p>
+<p>{{ i.airline_sentiment }}</p>
+<p>{{ i.airline }}</p>
+<p>{{ i.negativereason }}</p>
+<p>{{ i.user_comment }}</p>
+
+
+{% load getobjectid %}
+	<form method = "POST">
+		{% csrf_token %}
+		Comments <input type = "text" name = "commentfield" >
+		<input type = "submit" value = "AddComment" />
+	</form>
+	{% endfor %}
